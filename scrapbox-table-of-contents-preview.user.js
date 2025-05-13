@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Scrapbox Table of Contents Preview (Draggable Icon & No LR-Move Buttons)
+// @name         Scrapbox Table of Contents Preview
 // @namespace    https://scrapbox.io/asebi/
 // @version      1.0
 // @description  Displays a draggable (even as icon), collapsible, fixed table of contents on Scrapbox pages.
