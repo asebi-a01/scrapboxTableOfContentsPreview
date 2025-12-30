@@ -1,44 +1,64 @@
-# Scrapbox Table Of Contents Preview
+# Scrapbox TOC (Persistent Sidebar)
 
-Scrapbox Table Of Contents Preview with Tampermonkey.
+A Tampermonkey userscript that adds a persistent table of contents sidebar to Scrapbox pages.
 
-## 概要 (Overview)
+## Overview
 
-* Scrapboxのページ内に表示されているコンテンツの目次を表示します。
+This userscript creates a fixed sidebar that displays a table of contents for Scrapbox pages. The sidebar remains visible and provides quick navigation to section headers within the current page.
 
-## 機能 (Features)
+## Features
 
-* Scrapboxの内部リンクにホバーすると、リンク先ページのプレビューを表示します。
-* プレビュー内容はAPI経由で取得され、スクロール可能です。
-* プレビュー内の内部リンクにホバーすると、さらに1段階ネストしてプレビューを表示します（合計2つのプレビューウィンドウまで）。
-* プレビューの表示/非表示の遅延時間などをスクリプト内で設定可能です。
-* プレビュー内のリンク（内部リンク、外部リンク）はクリックして実際にページ遷移できます。
+* **Persistent Sidebar**: Always visible on desktop screens (min-width: 1000px)
+* **Automatic TOC Generation**: Automatically detects section titles and creates numbered navigation links
+* **Smooth Scrolling**: Click on TOC items to smoothly scroll to the corresponding section
+* **Responsive Design**: Automatically hides on mobile/tablet screens for better usability
+* **Dark Mode Support**: Adapts to Scrapbox's dark theme
+* **Real-time Updates**: TOC updates automatically as you edit the page content
+* **Clean UI**: Minimalist design that integrates seamlessly with Scrapbox's interface
 
-## インストール方法 (Installation)
+## Installation
 
-1.  **ユーザースクリプトマネージャの導入:**
-    お使いのブラウザに Tampermonkey をインストールしてください。
+1. **Install a Userscript Manager**:
+   Install Tampermonkey extension for your browser (Chrome, Firefox, Safari, etc.)
 
-2.  **スクリプトの登録:**
-    Tampermonkey にコードを貼り付けて保存し、スクリプトを有効化してください。
+2. **Add the Script**:
+   Copy the userscript code and paste it into a new Tampermonkey script, then save and enable it.
 
-## 使い方 (Usage)
+## Usage
 
-このユーザースクリプトはScrapboxのページ (`https://scrapbox.io/*`) で機能します。
+This userscript works on all Scrapbox pages (`https://scrapbox.io/*`).
 
-* Scrapboxのページ内に目次を表示します。
-* インデントレベルが0（もっとも左にある）の項目、かつ上の行が空欄になっているものが目次の対象となります。
-* "Table Of Contents" をクリックすると最小化しアイコンになります。アイコンをクリックすると元に戻ります。
-* 目次の項目をクリックするとその行まで移動します。
-* Google Chrome, Firefox, Brave ブラウザでの動作を確認しています。
-* 右上のアイコンを押すと位置が初期化されます。
+### How it Works
 
-## 免責事項 (Disclaimer)
+* The script automatically detects section titles (lines with `.section-title` class)
+* Creates a numbered table of contents in a fixed left sidebar
+* Excludes the page title and lines starting with `#` from the TOC
+* When no content is available, displays "No contents" message
+* Clicking on TOC items scrolls smoothly to the corresponding section
+* The sidebar is automatically hidden on screens smaller than 1000px width
 
-このユーザースクリプトは、**MITライセンス**に基づき提供されます。
+### Browser Compatibility
 
-* **無保証:** 制作者は、本スクリプトの動作、機能、正確性について一切の保証をいたしません。
-* **自己責任:** 本スクリプトの利用は、全て利用者自身の責任において行ってください。利用によって生じたいかなる損害についても、作者は責任を負いません。
-* **仕様変更リスク:** Scrapbox側の仕様変更により、本スクリプトは予告なく動作しなくなる可能性があります。
+Tested and confirmed to work on:
+* Google Chrome
+* Firefox
+* Safari
+* Brave Browser
 
-ご利用にあたっては、これらの点を十分にご理解ください。
+## Technical Details
+
+* **Version**: 2.6
+* **Sidebar Width**: 260px
+* **Z-index**: 100 (ensures sidebar stays on top)
+* **Update Delay**: 500ms (prevents excessive updates during rapid editing)
+* **Scroll Offset**: 80px (accounts for Scrapbox's top navigation)
+
+## Disclaimer
+
+This userscript is provided under the **MIT License**.
+
+* **No Warranty**: The author provides no warranty regarding the functionality, accuracy, or reliability of this script.
+* **Use at Your Own Risk**: Users are solely responsible for any consequences arising from the use of this script.
+* **Compatibility Risk**: This script may stop working without notice due to changes in Scrapbox's specifications or interface.
+
+Please understand these limitations before using this script.
